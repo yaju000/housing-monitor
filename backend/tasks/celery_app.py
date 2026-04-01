@@ -8,7 +8,7 @@ celery_app.conf.beat_schedule = {
     "crawl-lvr-daily": {
         "task": "tasks.scheduled.crawl_and_notify",
         "schedule": crontab(hour=3, minute=0),  # 每天凌晨 3 點
-        "args": (["台北市", "新北市"],),
+        "args": (["台南市"],),
     },
 }
 
