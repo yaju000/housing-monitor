@@ -1,5 +1,4 @@
 import pytest
-from datetime import date
 
 async def make_project(client, name="測試案"):
     r = await client.post("/api/projects", json={"name": name})
