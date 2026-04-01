@@ -1,5 +1,4 @@
 import pytest
-from unittest.mock import AsyncMock, patch, MagicMock
 from app.services.crawler import parse_lvr_csv_row, normalize_city_code
 
 def test_normalize_city_code():

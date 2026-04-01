@@ -1,3 +1,4 @@
+import asyncio
 import resend
 from app.config import settings
 from app.models.alert import AlertSubscription, AlertLog
@@ -47,12 +48,15 @@ async def send_price_alert(
     </p>
     """
 
-    resend.Emails.send({
-        "from": "房價追蹤 <noreply@housing-monitor.tw>",
-        "to": [subscription.email],
-        "subject": f"【房價追蹤】{project.name} 有新成交資料",
-        "html": html,
-    })
+    await asyncio.to_thread(
+        resend.Emails.send,
+        {
+            "from": "房價追蹤 <noreply@housing-monitor.tw>",
+            "to": [subscription.email],
+            "subject": f"【房價追蹤】{project.name} 有新成交資料",
+            "html": html,
+        },
+    )
 
     log = AlertLog(
         subscription_id=subscription.id,

@@ -28,7 +28,7 @@ async def _crawl_and_notify(cities: list[str]) -> dict:
         notifications_sent = 0
         for project in projects:
             new_avg = await get_recent_avg_price(project.id, db, days=30)
-            old_avg = await get_recent_avg_price(project.id, db, days=60)
+            old_avg = await get_recent_avg_price(project.id, db, days=90)
             to_notify = await find_changed_subscriptions(project.id, new_avg, old_avg, db)
             for sub, old_val, new_val in to_notify:
                 await send_price_alert(sub, project, old_val, new_val, db)
