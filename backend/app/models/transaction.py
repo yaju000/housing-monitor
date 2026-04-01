@@ -1,5 +1,5 @@
-from datetime import date, datetime
-from sqlalchemy import Integer, String, Numeric, Date, TIMESTAMP, ForeignKey, Text
+from datetime import date
+from sqlalchemy import Integer, String, Numeric, Date, ForeignKey
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database import Base
