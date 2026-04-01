@@ -24,7 +24,7 @@ export default function Compare() {
       })
       .then(entries => setTransactionsMap(Object.fromEntries(entries)))
       .finally(() => setLoading(false))
-  }, [compareList.length])
+  }, [compareList])
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
